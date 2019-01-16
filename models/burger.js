@@ -18,5 +18,4 @@ var burger = {
 	}
 };
 
-// Export database functions for the controller (burgers_controller.js)
 module.exports = burger;
