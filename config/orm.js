@@ -1,4 +1,14 @@
 var connection = require("./connection.js");
+function printQuestionMarks(num) {
+	var arr = [];
+
+	for (var i = 0; i < num; i++) {
+			arr.push("?");
+	}
+
+	return arr.toString();
+}
+
 
 function objToSql(ob) {
   var arr = [];
@@ -17,9 +27,9 @@ function objToSql(ob) {
 }
 
 var orm = {
-	selectAll: function(tableInput, cb) {
-		var queryString = "SELECT * FROM ??";
-		connection.query(queryString, [tableInput], function(err, result){
+	all: function(tableInput, cb) {
+		var queryString = "SELECT * FROM ??" + tableInput;
+		connection.query(queryString, function(err, result){
 			if (err) {
 				throw err;
 			}
@@ -62,7 +72,22 @@ var orm = {
 			console.log(result);
 			cb(result);
 		});
-	}
+	},
+
+	delete: function(table, burgerId, cb) {
+    var queryString = "DELETE FROM " + table;
+    queryString += " WHERE ";
+    queryString += burgerId;
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
+  }
+
 };
 
 module.exports = orm;
