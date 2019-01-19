@@ -1,55 +1,33 @@
 <div class="container">
-	<div class="text-center">
-	  <img src="public/images/original-3646022-1.jpg" class="rounded" alt="Menu Image">
-	</div>
+    <section id="page-name">
+            <iframe id="main-image" src="https://giphy.com/embed/UAXou95E6oPjW" width="480" height="326" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <h1>Eat-Da-Buger</h1>
+    </section>
 
-	<h1 class="text-center">EAT DA BURGER</h1>
+    <section class="row">
+        <div class="col-md-7 col-left">
+            <table>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        {{> burgers/burger-block}}
+                    {{/unless}}
+                {{/each}}
+            </table>
+        </div>
+        <div class="col-md-5 col-right">
+            {{#each burgers}}
+                {{#if devoured}}
+                    <div>{{id}}. {{burger_name}}</div>
+                {{/if}}
+            {{/each}}        
+        </div>          
+    </section>
 
-	<div class="row">
-	
-		<div class="col-md-5 burger-box" id="not-devoured">
-		
-			<ul class="list-group">
-			  {{#each burgers}}
-			  	{{#unless devoured}}
-						{{> burgers/burgerNotDevoured-block}}
-					{{/unless}}
-			  {{/each}}
-			</ul>
-		</div>
-
-	
-		<div class="col-md-2" id="blank">
-		</div>
-
-	
-		<div class="col-md-5 burger-box" id="devoured">
-			<ul class="list-group">
-				{{#each burgers}}
-					{{#if devoured}}
-						{{> burgers/burgerDevoured-block}}
-					{{/if}}
-				{{/each}}
-			</ul>
-		</div>
-	</div>
-
-	
-	<div class="row justify-content-center bottom">
-		<div class="col-md-5">
-			<form class="create-form">
-				<div class="form-group">
-					<input class="form-control form-control-lg" type="text" name="burger_name" id="burgerInfo" placeholder="Type in a burger here!">
-					<br>
-					<button type="submit" class="btn btn-primary btn-lg burger-button">Submit</button>
-
-					<p class="text-center directions">Type in the name of a burger you want to eat, then click "submit".</p>
-				</div>
-			</form>
-		</div>
-	</div>
-	
-  <div class="footer">
-		<p>&#169; Copyright 2019 Paige Herbst</p>
-  </div>
+    <form class="create-form">
+        <div class="form-group">
+            <label for="name"></label>
+            <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What do you want to eat?"></textarea>
+        </div>
+        <button type="submit">Add Burger</button>
+    </form>     
 </div>
