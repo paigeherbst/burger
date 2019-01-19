@@ -4,8 +4,9 @@
 
 body {
 	position: relative;
-	font-family: 'Passion One', cursive;
+	font-family: 'Coiny', cursive;
 	font-size: 2em;
+	background-color: aqua;
 }
 
 body:after {
@@ -14,9 +15,6 @@ body:after {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-image: url(../image/burger_background.jpg);
-	background-size: cover;
-	background-repeat:no-repeat;
 	width: 100%;
 	min-height: 100vh;
 	opacity : 0.3;
@@ -24,7 +22,7 @@ body:after {
 }
 
 h1 {
-	color: green;
+	color: darkred;
 	font-size: 2em !important;
 }
 
@@ -34,11 +32,11 @@ h1 {
 }
 
 #main-image {
-	height: 150px;
+	height: 500px;
 }
 
 .col-left {
-	padding-left: 20%;
+	padding-left: 30%;
 }
 
 .col-right {
